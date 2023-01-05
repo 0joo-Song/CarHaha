@@ -1,0 +1,12 @@
+# base
+spring:
+  datasource: 
+    carhaha: 
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3306/carhaha?characterEncoding=utf-8&serverTimezone=UTC
+      username: root
+      password: 1234
+    
+#introPage
+  webservice:
+    intro: /index.do
