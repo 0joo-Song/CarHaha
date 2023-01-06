@@ -1,0 +1,45 @@
+@charset 'utf-8';
+
+@font-face {
+font-family: 'SpoqaHanSansNeo';
+font-style: normal;
+font-weight: 300;
+src: local('SpoqaHanSansNeo-Light'), local('SpoqaHanSansNeo-Light');
+src: url(../font/SpoqaHanSansNeo-Light.eot?#iefix) format('embedded-opentype');
+src: url(../font/SpoqaHanSansNeo-Light.eot);
+src: url(../font/SpoqaHanSansNeo-Light.woff2) format('woff2'),
+url(../font/SpoqaHanSansNeo-Light.woff) format('woff');
+}
+
+@font-face {
+font-family: 'SpoqaHanSansNeo';
+font-style: normal;
+font-weight: 400;
+src: local('SpoqaHanSansNeo-Regular'), local('SpoqaHanSansNeo-Regular');
+src: url(../font/SpoqaHanSansNeo-Regular.eot?#iefix) format('embedded-opentype');
+src: url(../font/SpoqaHanSansNeo-Regular.eot);
+src: url(../font/SpoqaHanSansNeo-Regular.woff2) format('woff2'),
+url(../font/SpoqaHanSansNeo-Regular.woff) format('woff');
+}
+
+@font-face {
+font-family: 'SpoqaHanSansNeo';
+font-style: normal;
+font-weight: 500;
+src: local('SpoqaHanSansNeo-Medium'), local('SpoqaHanSansNeo-Medium');
+src: url(../font/SpoqaHanSansNeo-Medium.eot?#iefix) format('embedded-opentype');
+src: url(../font/SpoqaHanSansNeo-Medium.eot);
+src: url(../font/SpoqaHanSansNeo-Medium.woff2) format('woff2'),
+url(../font/SpoqaHanSansNeo-Medium.woff) format('woff');
+}
+
+@font-face {
+font-family: 'SpoqaHanSansNeo';
+font-style: normal;
+font-weight: 700;
+src: local('SpoqaHanSansNeo-Bold'), local('SpoqaHanSansNeo-Bold');
+src: url(../font/SpoqaHanSansNeo-Bold.eot?#iefix) format('embedded-opentype');
+src: url(../font/SpoqaHanSansNeo-Bold.eot);
+src: url(../font/SpoqaHanSansNeo-Bold.woff2) format('woff2'),
+url(../font/SpoqaHanSansNeo-Bold.woff) format('woff');
+}

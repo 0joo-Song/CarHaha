@@ -1,0 +1,912 @@
+/*******************************************************************
+	tables
+********************************************************************/
+// table
+.table{
+	table-layout: fixed;
+	width: 100%;
+	text-align: left;
+	word-break: break-all;
+	th{
+		padding: 5px 10px;
+		word-break: break-all;
+		.row{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			.chk-box{
+				margin-right: 5px;
+			}
+		}
+	}
+	td{
+		padding: 5px 10px;
+		word-break: break-all;
+		.price{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			.cmt{
+				margin-right: 10px;
+			}
+			.inp-set{
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				.inp{
+					width: 100px;
+					text-align: end;
+				}
+			}
+			&.type-al{
+				justify-content: flex-start;
+				.inp-set{
+					margin-left: 10px;
+					span{
+						margin-left: 5px;
+					}
+				}
+			}
+		}
+		.period{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			.month{
+				margin-left: 15px;
+			}
+		}
+		.row-txt{
+			display: flex;
+			align-items: center;
+			&.sb{
+				justify-content: space-between;
+			}
+		}
+		.cmt{
+			flex-shrink: 0;
+			margin-top: 5px;
+			@include font(14px, $black-7);
+			&.lft{
+				margin-left: 0;
+				margin-right: 5px;
+			}
+			&.none{
+				margin-left: 10px;
+				margin-top: 0;
+			}
+		}
+		.inp-set{
+			.inp{
+				@include font(14px);
+			}
+		}
+		.edit-txt{
+			overflow: hidden;
+			overflow-x: hidden;
+			overflow-y: auto;
+			max-height: 300px;
+			word-break: break-all;
+		}
+		.summary{
+			@include font(14px, $black-9);
+		}
+		.inner-set{
+			display: flex;
+			align-items: center;
+			.inner-component{
+				display: flex;
+				align-items: center;
+				margin-left: 10px;
+				.slct-set{
+					margin-left: 5px;
+					.slct{
+						width: 120px;
+					}
+				}
+			}
+		}
+		.inner-list{
+			>li{
+				padding: 6px 0;
+				border-top: 1px solid $gray-e;
+				word-break: break-all;
+				&:first-child{
+					border-top: 0;
+				}
+				.btn-set{
+					display: flex;
+					flex-shrink: 0;
+					width: 120px;
+					margin-left: 15px;
+					.btn{
+						width: 50%;
+						margin-left: 5px;
+						&:first-child{
+							margin-left: 0;
+						}
+					}
+				}
+			}
+		}
+		.stat-txt{
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			@include font(14px);
+			font-weight: $fw-bold;
+			.num{
+				color: $primary;
+			}
+			.cmt{
+				@include font(14px, $black-6);
+			}
+		}
+		&.table-chip{
+			&-ml{
+				.chip{
+					margin-left: 5px;
+				}
+			}
+			&-ac{
+				.chip{
+					margin: 0 auto;
+				}
+			}
+		}
+	}
+	tr{
+		&.no-data{
+			td{
+				height: 200px;
+			}
+		}
+	}
+	.tb-link{
+		color: $black-1;
+		font-weight: $fw-medium;
+		text-decoration: underline;
+	}
+	.file-link{
+		color: $primary;
+		font-weight: $fw-medium;
+		text-decoration: underline;
+	}
+	.btn-set{
+		display: flex;
+		align-items: center;
+		.btn,
+		.btn-icon{
+			margin-left: 10px;
+			&:first-child{
+				margin-left: 0;
+			}
+		}
+	}
+	.dot{
+		width: 15px;
+		height: 15px;
+		margin: 0 auto;
+		border-radius: 50%;
+		background: $black-9;
+	}
+	.fc-bk{
+		color: $black-1;
+		font-weight: $fw-medium;
+	}
+	&.fc-red{
+		color: $error;
+	}
+	// form 등록 테이블
+	&-form{
+		@include font(16px, $black-1);
+		th{
+			padding: 15px 5px;
+			color: $black-7;
+			font-weight: $fw-medium;
+			.cmt{
+				@include font(11px, $black-7);
+			}
+			&.top{
+				vertical-align: top;
+				.label{
+					margin-top: 10px;
+				}
+			}
+			&.at{
+				vertical-align: top;
+			}
+		}
+		td{
+			padding: 15px 30px 15px 5px;
+			.txt{
+				.time{
+					margin-left: 5px;
+					@include font(14px);
+					font-weight: $fw-regular;
+				}
+			}
+			.inp-set{
+				.inp{
+					@include font(16px, $black-1);
+				}
+				&.multi-type{
+					.dash{
+						line-height: 44px;
+					}
+				}
+			}
+			.info-tit{
+				display: flex;
+				.tit{
+					&.primary{
+						color: $primary;
+					}
+				}
+				.txt{
+					margin-left: 5px;
+					color: $black-7;
+					font-weight: $fw-regular;
+				}
+			}
+			.label-set{
+				display: flex;
+				align-items: center;
+				.label{
+					display: flex;
+					align-items: center;
+					&::before{
+						content: '';
+						width: 1px;
+						height: 14px;
+						margin: 0 10px;
+						background: $black-7;
+					}
+					&:first-child{
+						&::before{
+							content: none;
+						}
+					}
+					&.in{
+						color: $primary;
+					}
+					&.out{
+						color: $error;
+					}
+					&.line{
+						&::after{
+							content: '';
+							width: 1px;
+							height: 14px;
+							margin: 0 15px;
+							background: $black-7;
+						}
+					}
+				}
+				.btn,
+				.btn-icon{
+					margin-left: 15px;
+				}
+				.btn-icon{
+					&.list{
+						&::before{
+							width: 16px;
+							height: 16px;
+						}
+						&:hover{
+							&::before{
+								background-position: 0 -16px !important;
+							}
+						}
+					}
+				}
+			}
+			.use-cmt{
+				margin-left: 15px;
+				.txt{
+					@include font(14px, $primary);
+					&.not{
+						color: $error;
+					}
+				}
+			}
+			.date{
+				@include font(14px, $black-7);
+			}
+			&.top{
+				vertical-align: top;
+			}
+			.fc-red{
+				color: $error;
+			}
+		}
+		tr{
+			th,
+			td{
+				height: 45px;
+			}
+			&:first-child{
+				th,
+				td{
+					border-top: 0;
+				}
+			}
+		}
+		&.full{
+			td{
+				padding: 15px 5px;
+			}
+		}
+		.lookup-set{
+			display: flex;
+			align-items: center;
+			.btn-icon{
+				flex-shrink: 0;
+			}
+			.inner-info{
+				display: flex;
+				align-items: center;
+				width: 100%;
+				height: 60px;
+				margin-left: 20px;
+				border-radius: 30px;
+				background: $disabled-inp;
+				>li{
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					width: 100%;
+					margin-left: 30px;
+					&:first-child{
+						margin-left: 0;
+					}
+					.label{
+						flex-shrink: 0;
+						margin-right: 10px;
+						@include font(16px, $black-9);
+					}
+					.txt{
+						display: flex;
+						align-items: center;
+						flex-shrink: 0;
+						@include font(16px, $black-1);
+						font-weight: $fw-medium;
+						.name{
+							@include font(18px, $black-1);
+							font-weight: $fw-medium;
+						}
+						.sub-info{
+							margin-left: 10px;
+							@include font(16px, $black-1);
+							font-weight: $fw-regular;
+						}
+					}
+				}
+			}
+		}
+	}
+	// list 테이블
+	&-list{
+		@include font(16px, $black-1);
+		text-align: center;
+		th{
+			padding: 15px 5px;
+			border-bottom: 2px solid $border1;
+			background: $wht;
+			color: $black-7;
+			font-weight: $fw-regular;
+		}
+		td{
+			padding: 12px 5px;
+			border-top: 1px solid $gray-e;
+			word-break: keep-all;
+			background: $wht;
+			transition: all 0.2s;
+			color: $black-7;
+			.type-txt{
+				@include font(16px, $black-9);
+			}
+			.date{
+				@include font(14px, $black-1);
+			}
+			&.bg1{
+				background: $tb-bg1 !important;
+			}
+			&.bg2{
+				background: $tb-bg2 !important;
+			}
+			&.bg3{
+				background: $tb-bg3 !important;
+			}
+		}
+		tr{
+			&:hover{
+				td{
+					background: $wht-hover;
+					.tb-link{
+						color: $primary;
+					}
+				}
+			}
+			&:first-child{
+				td{
+					border-top: 0;
+				}
+			}
+		}
+		&.line{
+			th,
+			td{
+				border-left: 1px solid $gray-c;
+				&:first-child{
+					border-left: 0;
+				}
+			}
+		}
+		&.inner{
+			width: 100%;
+			border-top: 1px solid $black-9;
+			border-bottom: 1px solid $black-9;
+			thead{
+				th{
+					height: auto;
+					padding: 8px 5px;
+					@include font(12px);
+				}
+			}
+			tbody{
+				td{
+					height: auto;
+					padding: 8px 5px;
+					@include font(12px);
+				}
+			}
+		}
+		&.type2{
+			border-bottom: 1px solid $gray-e;
+			tbody{
+				th{
+					border-bottom: 1px solid $gray-e;
+					background: $disabled-inp;
+				}
+				td{
+					background: $wht;
+				}
+			}
+			.stit{
+				@include font(14px);
+			}
+			.btn-icon{
+				margin: 0 auto;
+			}
+		}
+	}
+	&.fixed-type1{
+		table-layout: auto;
+		@include font(16px, $black-1);
+		text-align: center;
+		border-collapse: separate;
+		thead{
+			z-index: 2;
+			position: sticky;
+			top: 0;
+			left: 0;
+			width: 100%;
+			background: $wht;
+			&::after{
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: 2px;
+				background: $border1;
+			}
+			th{
+				padding: 15px 5px;
+				box-shadow: inset 0 -1px $gray-e;
+				border-right: 1px  solid $gray-e;
+				background: $wht;
+				color: $black-7;
+				font-weight: $fw-regular;
+			}
+		}
+		tbody{
+			z-index: 1;
+			th{
+				padding: 12px 5px;
+				font-weight: $fw-regular;
+				border-top: 1px solid $gray-e;
+				border-right: 1px solid $gray-e;
+				word-break: keep-all;
+				background: $disabled-inp;
+				transition: all 0.2s;
+				color: $black-7;
+			}
+			td{
+				padding: 12px 5px;
+				border-top: 1px solid $gray-e;
+				border-right: 1px solid $gray-e;
+				word-break: keep-all;
+				background: $wht;
+				transition: all 0.2s;
+				color: $black-7;
+				.type-txt{
+					@include font(16px, $black-9);
+				}
+				.date{
+					@include font(14px, $black-1);
+				}
+				&.fc-red{
+					color: $error;
+				}
+			}
+		}
+	}
+	&.fixed-type2{
+		table-layout: auto;
+		@include font(16px, $black-1);
+		text-align: center;
+		border-collapse: separate;
+		thead{
+			z-index: 3;
+			position: sticky;
+			top: 0;
+			left: 0;
+			width: 100%;
+			background: $wht;
+			&::after{
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: 2px;
+				background: $border1;
+			}
+			th{
+				padding: 15px 5px;
+				box-shadow: inset 0 -1px $gray-e;
+				border-right: 1px  solid $gray-e;
+				background: $wht;
+				color: $black-7;
+				font-weight: $fw-regular;
+				&.fix{
+					position: sticky;
+					left: 0;
+					&.col-1{
+						width: 100px !important;
+					}
+					&.col-2{
+						left: 100px;
+						width: 300px !important;
+					}
+				}
+			}
+		}
+		tbody{
+			tr{
+				&:first-child{
+					th,td{
+						border-top: 0;
+					}
+				}
+				th{
+					z-index: 2;
+					position: sticky;
+					left: 0;
+					&.col-1{
+						width: 100px !important;
+					}
+					&.col-2{
+						left: 100px;
+						width: 300px !important;
+					}
+					&.col-2-1{
+						left: 100px;
+						width: 100px !important;
+					}
+					&.col-3{
+						left: 200px;
+						width: 200px !important;
+					}
+				}
+			}
+			th{
+				padding: 12px 5px;
+				font-weight: $fw-regular;
+				border-top: 1px solid $gray-e;
+				border-right: 1px solid $gray-e;
+				word-break: keep-all;
+				background: $disabled-inp;
+				transition: all 0.2s;
+				color: $black-7;
+			}
+			td{
+				padding: 12px 5px;
+				border-top: 1px solid $gray-e;
+				border-right: 1px solid $gray-e;
+				word-break: keep-all;
+				background: $wht;
+				transition: all 0.2s;
+				color: $black-7;
+				.type-txt{
+					@include font(16px, $black-9);
+				}
+				.date{
+					@include font(14px, $black-1);
+				}
+			}
+		}
+		.cmt{
+			@include font(14px);
+		}
+		.icon-set{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			.btn-icon{
+				flex-shrink: 0;
+				margin-left: 10px;
+			}
+		}
+	}
+}
+
+.tb-scroll{
+	overflow: hidden;
+	overflow-x: auto;
+	overflow-y: auto;
+	width: 1200px;
+	min-width: 100%;
+	min-height: 600px;
+	// height: 400px;
+	&.h-type1{
+		height: calc(100vh - 410px);
+	}
+	&.h-type2{
+		height: calc(100vh - 470px);
+	}
+	&.h-type3{
+		height: calc(100vh - 560px);
+	}
+}
+
+// table set layout
+.table-set{
+	
+}
+
+// 테이블 상단 영역
+.table-top{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	padding: 0 20px;
+	.tit-set{
+		display: flex;
+		align-items: center;
+		width: 50%;
+		.tit{
+			@include font(18px, $black-1);
+			font-weight: $fw-bold;
+		}
+		.slct{
+			width: 140px;
+			margin-left: 20px;
+		}
+		.btn-set{
+			display: flex;
+			margin-left: 15px;
+			.btn{
+				width: auto;
+				height: 30px;
+				@include font(12px);
+				margin-left: 5px;
+				&:first-child{
+					margin-left: 0;
+				}
+			}
+		}
+		.cmt{
+			margin-left: 15px;
+			color: $black-9;
+		}
+	}
+	.total{
+		@include font(15px, $black-7);
+		font-weight: $fw-medium;
+		strong{
+			font-weight: $fw-medium;
+		}
+	}
+	.info-set{
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		width: 50%;
+		.slct{
+			width: 140px;
+		}
+		.btn-set{
+			display: flex;
+			.btn-icon{
+				margin-left: 10px;
+				&:first-child{
+					margin-left: 0;
+				}
+			}
+		}
+		.txt{
+			@include font(12px, $black-6);
+		}
+		.data-txt{
+			display: flex;
+			align-items: center;
+			@include font(13px, $black-9);
+			.cmt{
+				margin-left: 5px;
+				@include font(13px, $black-9);
+			}
+		}
+		.srch-inp{
+			width: 500px;
+		}
+	}
+	.cmt{
+		@include font(13px, $black-6);
+	}
+	&.rgt{
+		justify-content: flex-end;
+	}
+	&.line{
+		padding: 0 0 10px;
+		border-bottom: 1px solid $gray-e;
+	}
+	&.flex-end{
+		align-items: flex-end;
+	}
+}
+
+// 테이블 하단 영역
+.table-bottom{
+	margin: 30px 0 0;
+	&.border{
+		margin-top: 20px;
+		padding-top: 10px;
+		border-top: 1px solid #000;
+	}
+	.btn-set{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		.btn-list{
+			display: flex;
+			width: 100%;
+			.btn{
+				width: 80px;
+				height: 35px;
+				@include font(14px);
+				margin-left: 5px;
+				&:first-child{
+					margin-left: 0;
+				}
+				&.small{
+					width: 55px;
+					height: 30px;
+					@include font(12px);
+				}
+			}
+		}
+		&.rgt{
+			justify-content: flex-end;
+		}
+		&.center{
+			justify-content: center;
+			.btn-list{
+				justify-content: center;
+			}
+		}
+	}
+}
+
+// 테이블 스크롤 영역
+.table-scroll{
+	overflow: hidden;
+	overflow-x: hidden;
+	overflow-y: auto;
+	width: 100%;
+	height: 200px;
+	border-top: 1px solid $black-6;
+	border-bottom: 1px solid $black-9;
+	.table{
+		border-top: 0;
+		border-bottom: 0;
+		thead{
+			th{
+				position: sticky;
+				top: 0;
+			}
+		}
+	}
+}
+
+// 테이블 안내 텍스트 영역
+.tb-info-txt{
+	margin-top: 15px;
+	>li{
+		display: flex;
+		@include font(13px, $black-7);
+		&::before{
+			content: '※';
+			flex-shrink: 0;
+			margin-right: 5px;
+		}
+	}
+	&.type2{
+		padding: 0 20px;
+		>li{
+			align-items: center;
+			.btn-txt{
+				margin-left: 10px;
+			}
+		}
+	}
+}
+
+// 페이징과 버튼이 함께 있는 경우
+.paging-bottom{
+	position: relative;
+	margin: 40px 0;
+	// display: flex;
+	// justify-content: space-between;
+	.lft-set{
+		@include center(vertical);
+		left: 0;
+	}
+	.rgt-set{
+		@include center(vertical);
+		right: 0;
+	}
+	.paging{
+		margin: 0;
+	}
+}
+
+// 테이블 paging
+.paging{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	margin-top: 20px;
+	.btn{
+		width: 25px;
+		height: 25px;
+		margin: 0 6px;
+		border-radius: 50%;
+		background: transparent;
+		@include font(14px, $black-1);
+		&:hover,
+		&.active{
+			background: $gray-b;
+			color: $wht;
+		}
+		&-first,
+		&-prev,
+		&-next,
+		&-last{
+			border: 0;
+			&:hover{
+				background: transparent;
+			}
+		}
+		&-prev{
+			margin-right: 15px;
+		}
+		&-next{
+			margin-left: 15px;
+		}
+	}
+}

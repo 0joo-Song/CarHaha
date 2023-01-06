@@ -1,0 +1,517 @@
+/*******************************************************************
+	Button
+********************************************************************/
+// 일반 버튼
+.btn{
+	// width: 100%;
+	width: 80px;
+	height: 38px;
+	border-radius: 3px;
+	@include font(14px, $wht);
+	transition: all 0.2s;
+	&-form{
+		background: $btn-gry;
+		&:hover{
+			background: $primary-hover;
+		}
+		&:disabled{
+			background: $disabled;
+		}
+	}
+	&-reset{
+		width: 25px;
+		height: 25px;
+		background: url("../images/btn/btn_reset.png") no-repeat 0 0;
+		background-size: 100%;
+		transition: all 0.2s;
+		&:hover{
+			transform: rotate(180deg);
+		}
+	}
+	&-first,
+	&-prev,
+	&-next,
+	&-last{
+		&::before{
+			content: '';
+			display: block;
+			width: 25px;
+			height: 25px;
+		}
+	}
+	&-first{
+		&::before{
+			background: url("../images/icon/ico_page_first.png") no-repeat 0 0;
+			background-size: 100%;
+		}
+	}
+	&-prev{
+		&::before{
+			background: url("../images/icon/ico_page_prev.png") no-repeat 0 0;
+			background-size: 100%;
+		}
+	}
+	&-next{
+		&::before{
+			background: url("../images/icon/ico_page_next.png") no-repeat 0 0;
+			background-size: 100%;
+		}
+	}
+	&-last{
+		&::before{
+			background: url("../images/icon/ico_page_last.png") no-repeat 0 0;
+			background-size: 100%;
+		}
+	}
+	&-link{
+		color: $primary;
+		font-weight: $fw-medium;
+		text-decoration: underline;
+	}
+	&.round{
+		height: 30px;
+		padding: 0 10px;
+		border-radius: 15px;
+	}
+}
+
+// 텍스트 형태 버튼
+.btn-txt{
+	padding: 5px;
+	@include font(16px, $black-7);
+	transition: all 0.2s;
+	line-height: 1;
+	&:hover{
+		color: $black-3;
+	}
+	&.icon{
+		display: flex;
+		align-items: center;
+		&::before{
+			content: '';
+			flex-shrink: 0;
+			width: 20px;
+			height: 20px;
+			margin-right: 5px;
+		}
+		&-log{
+			&::before{
+				background: url("../images/btn/btn_icon_login_gry.png") no-repeat 0 0;
+				background-size: 100%;
+			}
+		}
+	}
+	&.down{
+		display: flex;
+		align-items: center;
+		@include font(16px, $black-1);
+		&::after{
+			content: '';
+			flex-shrink: 0;
+			width: 20px;
+			height: 20px;
+			margin-left: 5px;
+			background: url("../images/btn/btn_icon_download.png") no-repeat 0 0;
+			background-size: 100%;
+		}
+		&:hover{
+			color: $primary;
+			&::after{
+				background-position: 0 -20px;
+			}
+		}
+	}
+}
+
+// icon 형태 버튼
+.btn-icon{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 130px;
+	height: 44px;
+	border-radius: 25px;
+	border: 1px solid $black-9;
+	background: $wht;
+	@include font(16px, $black-7);
+	font-weight: $fw-medium;
+	transition: all 0.2s;
+	&::before{
+		content: '';
+		width: 20px;
+		height: 20px;
+		margin-right: 5px;
+	}
+	&:hover{
+		border-color: $primary-hover;
+		background: $wht-hover;
+		color: $primary;
+		&::before{
+			background-position: 0 -20px !important;
+		}
+	}
+	&:disabled{
+		color: $gray-c;
+		border-color: $disabled;
+		&::before{
+			opacity: 0.2;
+		}
+		&:hover{
+			border-color: $disabled;
+			background: $wht;
+			color: $gray-c;
+			&::before{
+				background-position: 0 0 !important;
+			}
+		}
+	}
+	&.primary{
+		border: 0;
+		background: $primary;
+		color: $wht;
+		&:hover{
+			background: $primary-hover;
+			&::before{
+				background-position: 0 0 !important;
+			}
+		}
+		&:disabled{
+			background: $disabled;
+			&::before{
+				opacity: 1;
+			}
+			&:hover{
+				background: $disabled;
+				color: $wht;
+			}
+		}
+	}
+	&.type2{
+		span{
+			margin-right: 5px;
+			color: $primary;
+		}
+	}
+	// 로그인
+	&.log{
+		&::before{
+			background: url("../images/btn/btn_icon_login.png") no-repeat 0 0;
+			background-size: 100%;
+		}
+	}
+	// 저장/확인
+	&.save{
+		&::before{
+			background: url("../images/btn/btn_icon_save.png") no-repeat 0 0;
+			background-size: 100%;
+		}
+	}
+	// 등록/계정생성
+	&.reg{
+		&::before{
+			background: url("../images/btn/btn_icon_reg.png") no-repeat 0 0;
+			background-size: 100%;
+		}
+	}
+	// 수정
+	&.modify{
+		&::before{
+			background: url("../images/btn/btn_icon_modify.png") no-repeat 0 0;
+			background-size: 100%;
+		}
+	}
+	// 목록
+	&.list{
+		&::before{
+			background: url("../images/btn/btn_icon_list.png") no-repeat 0 0;
+			background-size: 100%;
+		}
+	}
+	// 취소
+	&.cancel{
+		&::before{
+			background: url("../images/btn/btn_icon_cancel.png") no-repeat 0 0;
+			background-size: 100%;
+		}
+	}
+	// 추가
+	&.add{
+		&::before{
+			background: url("../images/btn/btn_icon_plus_circle.png") no-repeat 0 0;
+			background-size: 100%;
+		}
+	}
+	// 선택삭제
+	&.del{
+		&::before{
+			background: url("../images/btn/btn_icon_minus_circle.png") no-repeat 0 0;
+			background-size: 100%;
+		}
+	}
+	// 삭제
+	&.delete{
+		&::before{
+			background: url("../images/btn/btn_icon_trash.png") no-repeat 0 0;
+			background-size: 100%;
+		}
+	}
+	// 선택
+	&.choice{
+		&::before{
+			background: url("../images/btn/btn_icon_chk_circle.png") no-repeat 0 0;
+			background-size: 100%;
+		}
+	}
+	// upload
+	&.upload{
+		&::before{
+			background: url("../images/btn/btn_icon_upload.png") no-repeat 0 0;
+			background-size: 100%;
+		}
+	}
+	// download
+	&.download{
+		&::before{
+			background: url("../images/btn/btn_icon_upload.png") no-repeat 0 0;
+			background-size: 100%;
+			transform: rotate(180deg);
+		}
+	}
+	// 시뮬레이션
+	&.simulation{
+		&::before{
+			background: url("../images/btn/btn_icon_simulation.png") no-repeat 0 0;
+			background-size: 100%;
+		}
+	}
+	// 초기화
+	&.reset{
+		&::before{
+			background: url("../images/btn/btn_icon_reset.png") no-repeat 0 0;
+			background-size: 100%;
+		}
+	}
+	// 조회
+	&.lookup{
+		&::before{
+			background: url("../images/btn/btn_icon_lookup.png") no-repeat 0 0;
+			background-size: 100%;
+		}
+		&-wht{
+			&::before{
+				background: url("../images/btn/btn_icon_lookup_wht.png") no-repeat 0 0;
+				background-size: 100%;
+			}	
+		}
+	}
+	// 내역보기
+	&.history{
+		&::before{
+			background: url("../images/btn/btn_icon_history.png") no-repeat 0 0;
+			background-size: 100%;
+		}
+	}
+	// 모두열림
+	&.plus{
+		&::before{
+			background: url("../images/btn/btn_icon_plus.png") no-repeat 0 0;
+			background-size: 100%;
+		}
+	}
+	// 모두닫힘
+	&.minus{
+		&::before{
+			background: url("../images/btn/btn_icon_minus.png") no-repeat 0 0;
+			background-size: 100%;
+		}
+	}
+	// sms 발송
+	&.sms{
+		&::before{
+			background: url("../images/btn/btn_icon_sms.png") no-repeat 0 0;
+			background-size: 100%;
+		}
+	}
+	// 사용가능
+	&.used{
+		border: 1px dotted $primary;
+		pointer-events: none;
+		color: $primary;
+		&::before{
+			background: url("../images/btn/btn_icon_chk_circle.png") no-repeat 0 -20px;
+			background-size: 100%;
+		}
+	}
+	// 연동가능
+	&.linked{
+		border-color: $primary;
+		pointer-events: none;
+		&::before{
+			background: url("../images/btn/btn_icon_linked.png") no-repeat 0 -20px;
+			background-size: 100%;
+		}
+	}
+	// 연동불가
+	&.not{
+		border: 1px dotted $error;
+		pointer-events: none;
+		&::before{
+			background: url("../images/btn/btn_icon_not.png") no-repeat 0 0;
+			background-size: 100%;
+		}
+	}
+	// 탈퇴
+	&.secede{
+		&::before{
+			background: url("../images/btn/btn_icon_person.png") no-repeat 0 0;
+			background-size: 100%;
+		}
+	}
+	// 사용
+	&.use{
+		&::before{
+			background: url("../images/btn/btn_icon_use.png") no-repeat 0 0;
+			background-size: 100%;
+		}
+	}
+	// 사용안함
+	&.notused{
+		&::before{
+			background: url("../images/btn/btn_icon_notused.png") no-repeat 0 0;
+			background-size: 100%;
+		}
+	}
+	// excel
+	&.excel{
+		width: auto !important;
+		padding: 0 7px;
+		&::before{
+			margin-right: 0;
+			background: url("../images/btn/btn_excel.png") no-repeat 0 0;
+			background-size: 100%;
+		}
+		&:hover{
+			&::before{
+				background-position: 0 0 !important;
+			}
+		}
+	}
+	// 종합
+	&.total{
+		&::before{
+			background: url("../images/btn/btn_icon_total.png") no-repeat 0 0;
+			background-size: 100%;
+		}
+	}
+	// 최근
+	&.recent{
+		&::before{
+			background: url("../images/btn/btn_icon_recent.png") no-repeat 0 0;
+			background-size: 100%;
+		}
+	}
+	// 첨부파일 삭제
+	&.file-del{
+		width: 20px !important;
+		height: 20px !important;
+		padding: 0;
+		&::before{
+			width: 14px;
+			height: 14px;
+			margin-right: 0;
+			background: url("../images/btn/btn_icon_trash_wht.png") no-repeat 0 0;
+			background-size: 100%;
+		}
+		&:hover{
+			background: $primary;
+			&::before{
+				background-position: 0 -14px !important;
+			}
+		}
+	}
+	// 그래프 보기 버튼
+	&.graph{
+		width: 20px !important;
+		height: 20px !important;
+		padding: 0;
+		&::before{
+			width: 14px;
+			height: 14px;
+			margin-right: 0;
+			background: url("../images/btn/btn_icon_graph.png") no-repeat 0 0;
+			background-size: 100%;
+		}
+		&:hover{
+			background: $primary;
+			&::before{
+				background-position: 0 -14px !important;
+			}
+		}
+	}
+
+	// 사각형 형태 변경
+	&.rac{
+		width: 80px;
+		height: 34px;
+		border-radius: 3px;
+		@include font(14px);
+	}
+	// 사이즈 변경
+	&.sm{
+		width: 100px;
+		height: 36px;
+		@include font(14px);
+	}
+	&.lg{
+		width: 150px;
+	}
+	&.auto{
+		width: auto;
+		padding: 0 10px;
+	}
+}
+
+// btn 정렬
+.btn-align{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+// 하단  정보 버튼 영역
+.btn-info-set{
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	margin-top: 15px;
+	.btn-list{
+		display: flex;
+		.btn-icon{
+			margin-left: 10px;
+			&:first-child{
+				margin-left: 0;
+			}
+		}
+	}
+}
+
+// 하단 버튼 영역
+.btn-bottom{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	margin-top: 30px;
+	.btn-list{
+		display: flex;
+		.btn-icon{
+			margin-left: 10px;
+			&:first-child{
+				margin-left: 0;
+			}
+		}
+	}
+	&.rgt{
+		justify-content: flex-end;
+	}
+}

@@ -1,0 +1,1203 @@
+/*******************************************************************
+	forms
+********************************************************************/
+// form 기본
+.form{
+	&-set{
+		.combo-type{
+			display: flex;
+			align-items: center;
+			.slash,
+			.dash{
+				margin: 0 15px;
+			}
+			.inp{
+				width: 100px;
+			}
+		}
+		.txt-type{
+			display: flex;
+			align-items: center;
+			.btn,
+			.icon{
+				margin-right: 15px;
+			}
+			.txt{
+				@include font(16px);
+			}
+			.inp-set{
+				margin: 0 10px;
+				.inp{
+					width: 80px;
+				}
+			}
+		}
+	}
+}
+
+/* 커스텀 스크롤바 */
+.scrollbar{
+	&::-webkit-scrollbar {
+		display: flex;
+		width: 4px;
+		height: 4px;
+	}
+	&::-webkit-scrollbar-track {
+		// background-color: #fff;
+		// background-color: $secondary;
+		// background-color: $secondary;
+	}
+	&::-webkit-scrollbar-thumb {
+		// background-color: #333;
+		// background-color: $gray-c;
+		background-color: rgba(255,255,255,.6);
+		border-radius: 3px;
+	}
+	&-wht{
+		&::-webkit-scrollbar-track {
+			background-color: $gray-c;
+		}
+		&::-webkit-scrollbar-thumb {
+			background-color: $black-6;
+			border-radius: 3px;
+		}	
+	}
+}
+
+// breadcrumb
+.breadcrumb{
+	display: flex;
+	align-items: center;
+	>li{
+		@include font(14px, $black-9);
+		&::before{
+			content: '>';
+			padding: 0 5px;
+		}
+		&:first-child{
+			&::before{
+				content: none;
+				padding: 0;
+			}
+		}
+	}
+}
+
+/* 체크박스 관련 */
+// 체크박스 리스트
+.chk-set{
+	display: flex;
+	.chk-box{
+		margin-left: 20px;
+		&:first-child{
+			margin-left: 0;
+		}
+	}
+}
+// checkbox
+.chk-box{
+	input[type="checkbox"]{
+		overflow: hidden;
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		clip: rect(0, 0, 0, 0);
+		border: 0;
+		&+label{
+			display: flex;
+			align-items: center;
+			@include font(16px, $black-9);
+			cursor: pointer;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			&::before{
+				content: '';
+				flex-shrink: 0;
+				width: 16px;
+				height: 16px;
+				margin-right: 10px;
+				border: 1px solid $gray-b;
+				background: $wht;
+			}
+		}
+		&:checked + label{
+			color: $black-1;
+			&::before{
+				background: $primary  url("../images/icon/ico_chk.png") no-repeat 50%;
+				background-size: 12px;
+				border-color: $primary;
+			}
+		}
+		&:disabled + label{
+			color: $disabled;
+			cursor: default;
+			&::before{
+				border-color: $disabled;
+			}
+		}
+		&:disabled{
+			&:checked + label{
+				color: $disabled;
+				cursor: default;
+				&::before{
+					background: $disabled  url("../images/icon/ico_chk.png") no-repeat 50%;
+					border-color: $disabled;	
+				}
+			}
+		}
+	}
+	&.none{
+		input[type="checkbox"]{
+			&+label{
+				width: 20px;
+				height: 20px;
+				margin: 0 auto;
+				&::before{
+					margin: 0 auto;
+				}
+			}
+		}
+	}
+}
+
+/* 라디오 관련 */
+// 라디오 리스트
+.rdo-set{
+	display: flex;
+	.rdo-box{
+		margin-left: 20px;
+		&:first-child{
+			margin-left: 0;
+		}
+	}
+	.cmt{
+		margin-left: 10px;
+		line-height: 1;
+	}
+}
+// radiobox
+.rdo-box{
+	input[type="radio"]{
+		overflow: hidden;
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		clip: rect(0, 0, 0, 0);
+		border: 0;
+		&+label{
+			display: flex;
+			align-items: center;
+			@include font(16px, $black-7);
+			cursor: pointer;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			&::before{
+				content: '';
+				display: block;
+				flex-shrink: 0;
+				width: 20px;
+				height: 20px;
+				margin-right: 10px;
+				border: 1px solid $gray-b;
+				border-radius: 50%;
+				background: $wht;
+			}
+		}
+		&:checked + label{
+			color: $black-1;
+			&::before{
+				background: $wht  url("../images/icon/ico_rdo.png") no-repeat 50%;
+				background-size: 12px;
+				border-color: $primary;
+			}
+		}
+		&:disabled + label{
+			background: $wht;
+			color: $disabled;
+			pointer-events: none;
+			&::before{
+				border-color: $disabled;
+			}
+		}
+		&:disabled{
+			&:checked + label{
+				color: $disabled;
+				&::before{
+					background: $wht  url("../images/icon/ico_rdo_disabled.png") no-repeat 50%;
+					background-size: 12px;
+					border-color: $disabled;
+				}
+			}
+		}
+	}
+	&.none{
+		input[type="radio"]{
+			&+label{
+				width: 20px;
+				height: 20px;
+				margin: 0 auto;
+				&::before{
+					margin: 0 auto;
+				}
+			}
+		}
+	}
+}
+// 기간 라디오 묶음
+.period-rdo{
+	display: flex;
+	.rdo-btn{
+		margin-left: 12px;
+		&:first-child{
+			margin-left: 0;
+		}
+	}
+}
+// 버튼식 라디오
+.rdo-btn{
+	input[type="radio"]{
+		overflow: hidden;
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		clip: rect(0,0,0,0);
+		border: 0;
+		& + label{
+			display: block;
+			width: 70px;
+			height: 40px;
+			line-height: 38px;
+			border: 1px solid $gray-b;
+			background: $wht;
+			@include font(16px, $black-9);
+			text-align: center;
+			cursor: pointer;
+			-webkit-user-select:none;
+			-moz-user-select:none;
+			-ms-user-select:none;
+		}
+		&:checked + label{	
+			border-color: $primary;
+			color: $primary;
+		}
+	}
+}
+
+/* textarea 관련 */
+// textarea
+.txt-area{
+	width: 100%;
+	height: 150px;
+	border: 1px solid $gray-b;
+	@include font(16px);
+}
+// textarea 카운트 텍스트
+.txtarea-count{
+	width: 100%;
+	.txt-area{
+		width: 100%;
+	}
+	.count-txt{
+		width: 100%;
+		padding: 5px 10px;
+		justify-content: flex-end;
+	}
+}
+
+/* 달력 관련 */
+// datepicker
+.calendar{
+	display: flex;
+	align-items: center;
+	.cal{
+		display: flex;
+		align-items: center;
+		width: 170px;
+		.datepicker{
+			width: 100%;
+			height: 40px;
+			padding: 0 12px;
+			border: 1px solid $gray-b;
+			@include font(16px);
+			&:disabled{
+				border-color: $disabled;
+				background: $disabled-inp;
+			}
+		}
+		.ui-datepicker-trigger{
+			flex-shrink: 0;
+			width: 27px;
+			height: 27px;
+			margin-left: 15px;
+		}
+	}
+	.wave{
+		flex-shrink: 0;
+		margin: 0 15px;
+		font-size: 20px;
+	}
+}
+// 기간 form set
+.period-set{
+	display: flex;
+	align-items: center;
+	.slct{
+		flex-shrink: 0;
+		width: 150px !important;
+		margin-right: 10px;
+	}
+	.period-rdo{
+		margin-left: 20px;
+	}
+	.chk-box{
+		flex-shrink: 0;
+		margin-left: 20px;
+		input[type="checkbox"] + label{
+			@include font(14px);
+			font-weight: $fw-regular;
+		}
+	}
+}
+
+/* select 관련 */
+// select 영역
+.slct-set{
+	display: flex;
+	.slct{
+		margin-left: 15px;
+		&:first-child{
+			margin-left: 0;
+		}
+	}
+	&.full{
+		.slct{
+			width: 100%;
+		}
+	}
+	&.btn-type{
+		.btn-set{
+			display: flex;
+			align-items: center;
+			margin-left: 15px;
+			.btn{
+				margin-left: 5px;
+				&:first-child{
+					margin-left: 0;
+				}
+			}
+		}
+	}
+}
+// select
+.slct{
+	position: relative;
+	width: 350px;
+	height: 40px;
+	border: 1px solid $gray-b;
+	background: $wht;
+	&::after{
+		content: '';
+		@include center(vertical);
+		flex-shrink: 0;
+		right: 10px;
+		width: 14px;
+		height: 14px;
+		background: url("../images/icon/ico_slct_arr.png") no-repeat 0 0;
+		background-size: 100%;
+	}
+	select{
+		height: 100%;
+		@include font(16px);
+		&:disabled{
+			border-color: $disabled;
+			background: $disabled-inp;
+			color: $black-7;
+		}
+	}
+	&.full{
+		width: 100%;
+	}
+}
+.slct-period{
+	display: flex;
+	align-items: center;
+	.slct-set{
+		.slct{
+			width: 120px;
+		}
+	}
+	.wave{
+		width: 30px;
+		text-align: center;
+	}
+}
+
+/* chip 관련 */
+.chip{
+	width: 45px;
+	height: 24px;
+	border-radius: 12px;
+	@include font(14px, $wht);
+	line-height: 24px;
+	text-align: center;
+	&.normal{
+		background: $status-normal;
+	}
+	&.caution{	
+		background: $status-caution;
+	}
+	&.danger{
+		background: $status-danger;
+	}
+	&.new{
+		background: $new;
+	}
+	&.update{
+		background: $update;
+	}
+	&.rac{
+		width: auto;
+		height: 16px;
+		padding: 0 3px;
+		border-radius: 3px;
+		@include font(11px, $wht);
+		line-height: 16px;
+	}
+}
+
+/* input 관련 */
+// input set
+.inp-set{
+	display: flex;
+	.address{
+		display: flex;
+		width: 100%;
+		.inp-row{
+			display: flex;
+			width: 100%;
+			.btn-set{
+				flex-shrink: 0;
+			}
+			.inp{
+				width: 100%;
+				margin-left: 15px;
+			}
+		}
+	}
+	&.slct-type{
+		.slct{
+			flex-shrink: 0;
+			width: 160px;
+			margin-right: 15px;
+		}
+		.inp{
+			width: 100%;
+		}
+	}
+	&.multi-type{
+		.inp{
+			flex-shrink: 0;
+			width: 100px !important;
+		}
+		.dash{
+			margin: 0 5px;
+			line-height: 40px;
+		}
+	}
+	&.btn-type{
+		display: flex;
+		align-items: center;
+		.btn-set{
+			display: flex;
+			align-items: center;
+			margin-left: 15px;
+			flex-shrink: 0;
+			.btn-icon{
+				&.used,
+				&.not{
+					margin-left: 10px;
+				}
+			}
+		}
+	}
+	&.inp-type{
+		.inp{
+			margin-left: 10px;
+			&:first-child{
+				margin-left: 0;
+			}
+		}
+	}
+
+	&.full{
+		.inp{
+			width: 100%;
+		}
+	}
+
+
+	.label-cmt{
+		margin: 6px 5px 0 0;
+	}
+	.count-txt{
+		margin-left: 5px;
+	}
+	&.row{
+		display: flex;
+		align-items: center;
+	}
+	&.row-txt{
+		display: flex;
+		align-items: center;
+		.inp{
+			width: 100px;
+		}
+		.cmt{
+			margin-left: 10px;
+		}
+	}
+	&.row-type{
+		display: flex;
+		align-items: center;
+		.unit{
+			@include font(14px);
+			margin: 0 10px 0 5px;
+		}
+		.inp{
+			width: 100%;
+			text-align: center;
+		}
+		.slct{
+			width: 100%;
+		}
+	}
+	&.al-c{
+		justify-content: center;
+	}
+}
+// input
+.inp{
+	width: 350px;
+	height: 40px;
+	padding: 0 10px;
+	border: 1px solid $gray-b;
+	@include font(16px);
+	&:disabled{
+		border-color: $disabled;
+		background: $disabled-inp;
+		color: $black-7 !important;
+	}
+	&.center{
+		text-align: center;
+	}
+	&.full{
+		width: 100%;
+	}
+	&.normal{
+		border-color: $inp-normal-border;
+		background: $inp-normal;
+	}
+	&.over{
+		border-color: $inp-over-border;
+		background: $inp-over;
+	}
+}
+// 검색 인풋
+.srch-inp{
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid $gray-c;
+	.inp{
+		width: 100%;
+		height: 50px;
+		border: 0;
+		@include font(17px);
+	}
+	.btn-srch{
+		width: 40px;
+		height: 40px;
+		background: url("../images/icon/ico_srch.png") no-repeat 0 0;
+		background-size: 100%;
+ 	}
+}
+
+// file
+.filebox{
+	display: flex;
+	align-items: center;
+	input[type="file"]{
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip:rect(0,0,0,0);
+		border: 0;
+	}
+	.upload-name{
+		width: calc(100% - 80px);
+		height: 40px;
+		padding: 0 10px;
+		border: 1px solid $gray-b;
+		border-radius: 3px 0 0 3px;
+		@include font(16px, $black-3);
+		&:focus{
+			outline: none;
+		}
+		&::placeholder{
+			color: $black-9;
+		}
+	}
+	label{
+		flex-shrink: 0;
+		width: 80px;
+		height: 38px;
+		line-height: 38px;
+		background: $btn-gry;
+		border-radius: 3px;
+		margin-left: 10px;
+		@include font(14px, $wht);
+		text-align: center;
+		cursor: pointer;
+		transition: all 0.2s;
+		&:hover{
+			background: $primary-hover;
+		}
+	}
+	&.md{
+		.upload-name{
+			width: 320px;
+		}
+	}
+	&.disabled{
+		.upload-name{
+			border-color: $disabled;
+			background: $disabled-inp;
+		}
+		label{
+			background: $disabled;
+		}
+		pointer-events: none;
+	}
+}
+.file-set{
+	display: flex;
+	align-items: center;
+	.cmt{
+		margin: 0 10px;
+	}
+}
+.file-info{
+	display: flex;
+	align-items: center;
+	margin-top: 10px;
+	.txt{
+		@include font(14px, $black-7);
+		line-height: 1;
+	}
+	.btn-icon{
+		margin-left: 10px;
+	}
+}
+// 파일 업로드 버튼
+.file-btn{
+	input[type="file"]{
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip:rect(0,0,0,0);
+		border: 0;
+		& + label{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 130px;
+			height: 44px;
+			border-radius: 25px;
+			border: 1px solid $black-9;
+			background: $wht;
+			@include font(16px, $black-7);
+			font-weight: $fw-medium;
+			cursor: pointer;
+			transition: all 0.2s;
+			&::before{
+				content: '';
+				width: 20px;
+				height: 20px;
+				margin-right: 5px;
+				background: url("../images/btn/btn_icon_upload.png") no-repeat 0 0;
+				background-size: 100%;
+			}
+		}
+		&:hover{
+			& + label{
+				border-color: $primary-hover;
+				background: $wht-hover;
+				color: $primary;
+				&::before{
+					background-position: 0 -20px !important;
+				}
+			}
+		}
+		&:disabled{
+			& + label{
+				color: $gray-c;
+				border-color: $disabled;
+				pointer-events: none;
+				&::before{
+					opacity: 0.2;
+				}
+				&:hover{
+					border-color: $disabled;
+					background: $wht;
+					color: $gray-c;
+					&::before{
+						background-position: 0 0 !important;
+					}
+				}
+			}
+		}
+	}
+}
+
+// 카운트 텍스트
+.count-txt{
+	display: flex;
+	align-items: center;
+	flex-shrink: 0;
+	@include font(12px, $black-9);
+}
+
+/* tab 관련 */
+// tab 영역
+.tab-bar{
+	display: flex;
+	box-shadow: inset 0 -1px 0 $gray-c;
+	.tab{
+		width: 100%;
+		padding: 15px 0;
+		@include font(18px, $black-7);
+		font-weight: $fw-bold;
+		&:hover,
+		&.on{
+			color: $primary;
+			box-shadow: inset 0 -2px 0 $primary;
+		}
+	}
+}
+
+// tab 리스트
+.tab-list{
+	display: flex;
+	width: 100%;
+	margin-bottom: 20px;
+	border-radius: 25px;
+	background: $wht-hover;
+	.tab{
+		min-width: 270px;
+		height: 50px;
+		padding: 0 15px;
+		@include font(16px, $black-7);
+		font-weight: $fw-medium;
+		&:hover{
+			border: 1px solid $btn-gry;
+			border-radius: 25px;
+			background: $wht;
+			color: $primary;
+		}
+		&.on{
+			border: 1px solid $btn-gry;
+			border-radius: 25px;
+			background: $wht;
+			@include font(18px, $black-1);
+		}
+	}
+}
+
+.status-tab-area{
+	position: relative;
+	.status-txt{
+		@include center(vertical);
+		right: 20px;
+	}
+}
+
+.status-txt{
+	display: flex;
+	align-items: center;
+	@include font(16px, $primary);
+	&::before{
+		content: '';
+		flex-shrink: 0;
+		width: 20px;
+		height: 20px;
+		margin-right:  5px;
+		background: url("../images/icon/ico_status.png") no-repeat 0 0;
+		background-size: 100%;
+	}
+	.txt{
+		font-weight: $fw-medium;
+	}
+	.date{
+		margin-left: 5px;
+		font-weight: $fw-regular;
+	}
+	&.patient{
+		color: $error;
+		&::before{
+			background-position: 0 -20px;
+		}	
+	}
+}
+
+.status-tab{
+	display: flex;
+	width: 100%;
+	margin-bottom: 20px;
+	border-radius: 15px 15px 0 0;
+	background: $wht-hover;
+	box-shadow: inset 0 -1px $btn-gry;
+	.tab{
+		min-width: 180px;
+		height: 50px;
+		padding: 0 15px;
+		@include font(16px, $black-7);
+		font-weight: $fw-medium;
+		&:hover{
+			border: 1px solid $btn-gry;
+			border-bottom: 1px solid $wht;
+			border-radius: 15px 15px 0 0;
+			background: $wht;
+			color: $primary;
+		}
+		&.on{
+			border: 1px solid $btn-gry;
+			border-bottom: 1px solid $wht;
+			border-radius: 15px 15px 0 0;
+			background: $wht;
+			@include font(18px, $black-1);
+		}
+	}
+}
+
+
+// tab 컨텐츠 영역
+.tab-content{
+	padding: 20px 0;
+}
+
+.sub-tab-area{
+	display: flex;
+	align-items: flex-end;
+	width: 100%;
+	.tab-bar{
+		width: 100%;
+		.tab{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			// width: 180px;
+			width: 100%;
+			max-width: 180px;
+			.txt{
+				@include font(16px, $black-7);
+				font-weight: $fw-medium;
+			}
+			.num{
+				margin-left: 5px;
+				@include font(14px, $black-9);
+				font-weight: $fw-regular;
+			}
+			&.on{
+				.txt{
+					color: $primary;
+				}
+				.num{
+					color: $primary;
+				}
+			}
+		}
+	}
+	.srch-inp{
+		flex-shrink: 0;
+		width: 350px;
+		margin-left: 40px;
+	}
+}
+
+// 필수-text
+.necessary-txt{
+	@include font(13px, $black-9);
+	&::before{
+		content: '＊';
+		@include font(18px, $error);
+	}
+}
+// 필수 클래스
+.necessary{
+	&::after{
+		content: '＊';
+		@include font(18px, $error);
+	}
+}
+
+// 에러 텍스트
+.error-txt{
+	@include font(14px, $error);
+}
+
+// 다운로드 포함 텍스트 영역
+.down-txt{
+	.txt{
+		margin-top: 5px;
+		@include font(14px, $black-1);
+	}
+}
+// 다운로드 아이콘 버튼
+.link-down{
+	display: inline-flex;
+	align-items: center;
+	@include font(16px, $primary);
+	text-decoration: underline;
+	&::after{
+		content: '';
+		width: 20px;
+		height: 20px;
+		margin-left: 5px;
+		background: url("../images/icon/ico_down_txt.png") no-repeat 0 -20px;
+		background-size: 100%;
+	}
+}
+
+
+/* 그래프 관련 */
+// 그래프 영역
+.graph-area{
+	position: relative;
+	width: 100%;
+	// height: 400px;
+	border: 1px solid $gray-c;
+	background: $wht;
+	padding: 20px;
+	border-radius: 10px;
+	.legend-top{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 10px;
+		>li{
+			display: flex;
+			align-items: center;
+			margin-left: 20px;
+			&:first-child{
+				margin-left: 0;
+			}
+			&::before{
+				content: '';
+				width: 20px;
+				height: 4px;
+				margin-right: 5px;
+				border-radius: 5px;
+			}
+		}
+		&.sales{
+			>li{
+				&:nth-child(1){
+					&::before{
+						background: rgba(133,179,255,.7);
+					}
+				}
+				&:nth-child(2){
+					&::before{
+						background: rgba(250,100,140,.7);
+					}
+				}
+				&:nth-child(3){
+					&::before{
+						background: rgba(155,180,20,.7);
+					}
+				}
+			}
+		}
+		&.hospital{
+			>li{
+				&:nth-child(1){
+					&::before{
+						background: rgba(133,179,255,.7);
+					}
+				}
+				&:nth-child(2){
+					&::before{
+						background: rgba(250,100,140,.7);
+					}
+				}
+			}
+		}
+		&.emr{
+			>li{
+				&:nth-child(1){
+					&::before{
+						background: #70A5DB;
+					}
+				}
+				&:nth-child(2){
+					&::before{
+						background: #EB6D69;
+					}
+				}
+				&:nth-child(3){
+					&::before{
+						background: #47BD86;
+					}
+				}
+				&:nth-child(4){
+					&::before{
+						background: #9A78F5;
+					}
+				}
+				&:nth-child(5){
+					&::before{
+						background: #EBE525;
+					}
+				}
+			}
+		}
+	}
+	.graph-set{
+		width: 100%;
+		height: 350px;
+		canvas{
+			width: 100% !important;
+			height: 100% !important;
+		}
+	}
+	.chart-box{
+		width: 100%;
+		height: 350px;
+		&.row{
+			display: flex;
+			.lft-box{
+				position: relative;
+				width: 50%;
+				canvas{
+					@include center(both);
+					width: 300px !important;
+					height: 300px !important;
+				}
+			}
+			.rgt-box{
+				position: relative;
+				width: 50%;
+				padding-left: 20px;
+				// height: 100%;
+				border-left: 1px solid $gray-c;
+				.top-info{
+					display: flex;
+					justify-content: flex-end;
+					border-bottom: 1px solid $gray-c;
+					padding-bottom: 15px;
+				}
+				.legend-list{
+					// @include center(both);
+					// width: 80%;
+					padding: 45px 20px;
+					>li{
+						display: flex;
+						align-items: center;
+						justify-content: space-between;
+						margin: 10px 0;
+						.txt{
+							display: flex;
+							align-items: center;
+							@include font(18px, $black-3);
+							&::before{
+								content: '';
+								width: 14px;
+								height: 14px;
+								margin-right: 8px;
+								border-radius: 4px;
+							}
+						}
+						.num{
+							flex-shrink: 0;
+							@include font(16px, $black-3);
+						}
+						&:nth-child(1){
+							.txt{
+								&::before{
+									background: $black-3;
+								}
+							}
+						}
+						&:nth-child(2){
+							.txt{
+								&::before{
+									background: #70A5DB;
+								}
+							}
+						}
+						&:nth-child(3){
+							.txt{
+								&::before{
+									background: #EB6D69;
+								}
+							}
+						}
+						&:nth-child(4){
+							.txt{
+								&::before{
+									background: #47BD86;
+								}
+							}
+						}
+						&:nth-child(5){
+							.txt{
+								&::before{
+									background: #9A78F5;
+								}
+							}
+						}
+						&:nth-child(6){
+							.txt{
+								&::before{
+									background: #EBE525;
+								}
+							}
+						}
+					}
+				}
+
+				// backgroundColor: ['#70A5DB', '#EB6D69', '#47BD86', '#9A78F5', '#EBE525'],
+			}
+		}
+	}
+	.no-data{
+		// display: none;
+		@include center(both);
+		@include font(18px, $black-3);
+	}
+}
+
+.graph-box{
+	padding: 20px 0 0;
+	.graph-set{
+		width: 100%;
+		height: 300px;
+		canvas{
+			width: 100% !important;
+			height: 100% !important;
+		}
+	}
+}

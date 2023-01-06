@@ -7,6 +7,6 @@ spring:
       username: root
       password: 1234
     
-#introPage
+#introPage (지금은 find my car로 바로 이동)
   webservice:
-    intro: /index.do
+    intro: /fmc/main.do

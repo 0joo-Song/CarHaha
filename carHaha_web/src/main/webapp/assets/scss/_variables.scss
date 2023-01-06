@@ -1,0 +1,227 @@
+@charset "utf-8";
+
+// style guide
+$font-family-base: 'SpoqaHanSansNeo','Noto Sans KR','Malgun Gothic',Arial,'Doutm',Tahoma,sans-serif;
+// $font-family-eng: 'Spartan','SpoqaHanSansNeo','Malgun Gothic',Arial,'Doutm',Tahoma,sans-serif;
+
+/* Primary */
+$primary: #3870ff;
+$primary-hover: #3399ff;
+/* Secondary */
+$secondary: #a1b1ff;
+
+$third: #7dccce;
+
+// font-color
+$black-1: #13141d;
+$black-2: #222;
+$black-3: #333;
+$black-4: #444;
+$black-6: #666;
+$black-7: #777;
+$black-8: #8e8e8e;
+$black-9: #95a2b2;
+
+$gray-b: #bfbfbf;
+$gray-c: #ccc;
+$gray-d: #dcdcdc;
+$gray-e: #e1e1e1;
+$gray-b: #bbb;
+$gray-f: #f1f1f1;
+
+$wht: #fff;
+$wht-hover: #f5f7f9;
+
+$bg-blk1: #0c2b42;
+
+$border1: #c7d3e2;
+
+// error
+$error: #ff1b71;
+
+$del: #ff6262;
+$del-hover: #c94747;
+
+// disabled color
+$disabled: #dfdfdf;
+$disabled-inp: #f4f4f4;
+
+$placeholder: #9ea0ab;
+
+// button color
+$btn-gry: #a1b5ce;
+$btn-blu: #3870ff;
+$btn-wht: #95a2b2;
+// $btn-blk: #333;
+
+// 인풋 범위 컬러
+$inp-normal: #d1eced;
+$inp-normal-border: #66cccc;
+$inp-over: #ffe3b1;
+$inp-over-border: #ffc052;
+
+// 상태값 컬러
+$status-normal: #c3d3e2;
+$status-caution: #ffc052;
+$status-danger: #ff1b71;
+$new: #bfe200;
+$update: #30d6ff;
+
+$tb-bg1: $disabled-inp;
+$tb-bg2: #e2f0f0;
+$tb-bg3: #d1eced;
+
+// font-weight
+$fw-bold: 700;
+$fw-medium: 500;
+$fw-regular: 400;
+$fw-light: 300;
+
+
+/*******************************************************************
+	Reset
+********************************************************************/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form,
+label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer,
+header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  // vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+  border: 0;
+  *margin: 0;
+  *padding: 0;
+  *font-size: 0;
+}
+blockquote, q {quotes:none}
+blockquote:before, blockquote:after, q:before, q:after {content: '';content: none}
+table {border-collapse:collapse;border-spacing:0}
+img {max-width:100%;width:100%;height:auto;vertical-align:top}
+ul, ol {list-style: none}
+html, body {width:100%;height:100%;font-family:$font-family-base;font-size:16px;font-weight:$fw-regular}
+// body {background: #f7f7f8}
+body {background: $wht}
+body * {box-sizing: border-box}
+strong{font-weight: $fw-bold}
+/* Form */
+input, textarea, select, button {
+  font-family: $font-family-base;
+  color: $black-1;
+  box-sizing: border-box;
+}
+select {
+  color: $black-1;
+}
+button {overflow: visible;width: auto;margin: 0;padding: 0;border: 0;background: none;cursor: pointer}
+button:disabled{cursor:default}
+input[type="button"], input[type="text"], input[type="image"], input[type="submit"], textarea {-webkit-appearance: none;border-radius: 0;outline: none;}
+input::-ms-clear {display:none}
+input[type="text"]:focus {outline: none}
+input[type="text"]:focus.read {outline: none}
+input[type="text"]:focus {outline: none}
+input[type="text"], input[type="password"], input[type="number"], input[type="file"] {
+  vertical-align: top;
+  outline: none;
+  border-radius: 0;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {-webkit-appearance:none;margin:0}
+select {
+  width: 100%;
+  height: 40px;
+  padding: 0 30px 0 10px;
+  border: 0;
+  border-radius: 0;
+  font-size: 16px;
+  z-index:1 !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  box-sizing: border-box;
+}
+select:focus{
+  outline: none;
+}
+select option {
+  color: $black-1;
+  margin: 0;
+}
+select::-ms-expand {display:none}
+textarea {
+  resize: none;
+  padding: 10px;
+  border: 1px solid $gray-b;
+  vertical-align: top;
+  &:focus{
+    outline: none;
+  }
+}
+a {text-decoration:none;cursor: pointer}
+a[href^="tel"] {font-style: normal}
+
+/* placeholder */
+input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder {color: transparent}
+input:focus:-moz-placeholder, textarea:focus:-moz-placeholder {color: transparent}
+input:focus::-moz-placeholder, textarea:focus::-moz-placeholder {color: transparent}
+input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder {color: transparent}
+input::-ms-input-placeholder{color: $placeholder} 
+input::-webkit-input-placeholder{color: $placeholder} 
+input::-moz-placeholder{color: $placeholder}
+input:-ms-input-placeholder{color: $placeholder}
+input:-moz-input-placeholder{color: $placeholder}
+
+textarea:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder {color: transparent}
+textarea:focus:-moz-placeholder, textarea:focus:-moz-placeholder {color: transparent}
+textarea:focus::-moz-placeholder, textarea:focus::-moz-placeholder {color: transparent}
+textarea:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder {color: transparent}
+textarea::-ms-input-placeholder{color: $placeholder} 
+textarea::-webkit-input-placeholder{color: $placeholder} 
+textarea::-moz-placeholder{color: $placeholder}
+textarea:-ms-input-placeholder{color: $placeholder}
+input:-moz-input-placeholder{color: $placeholder}
+
+/* 대체 텍스트 */
+.blind {visibility:hidden;overflow:hidden;position:absolute;top:0;left:0;width:0;height:0;font-size:0;line-height:0}
+/* 마진 / 패딩 설정 */
+@for $i from 1 through 100{
+	.mt#{$i*5}{
+		margin-top: #{$i * 5}px !important;
+	}
+	.pt#{$i*5}{
+		padding-top: #{$i * 5}px !important;
+	}
+}
+
+/* text 정렬 */
+.al{text-align: left !important}
+.ac{text-align: center !important}
+.ar{text-align: right !important}
+/* border none */
+.brtn{border-top: 0 !important}
+.brrn{border-right: 0 !important}
+.brbn{border-bottom: 0 !important}
+.brln{border-left: 0 !important}
+/* margin none */
+.mtn{margin-top: 0 !important}
+.mrn{margin-right: 0 !important}
+.mbn{margin-bottom: 0 !important}
+.mln{margin-left: 0 !important}
+/* padding none */
+.ptn{padding-top: 0 !important}
+.prn{padding-right: 0 !important}
+.pbn{padding-bottom: 0 !important}
+.pln{padding-left: 0 !important}
+.pdn{padding: 0 !important}
+
+// .fc-red{
+// 	color: $error;
+// }
+// .fc-blu{
+// 	color: $primary;
+// }
+
